@@ -1,25 +1,44 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from "react";
+import Form from "./components/Form";
+import UserDetails from "./components/UserDetails";
 
-function App() {
+const App = () => {
+  const [userData, setUserData] = useState(null);
+  const [userRepos, setUserRepos] = useState([]);
+
+  const handleSubmitForm = async (username) => {
+    try {
+      const userResponse = await fetch(
+        `https://api.github.com/users/${username}`
+      );
+      const user = await userResponse.json();
+
+      const reposResponse = await fetch(
+        `https://api.github.com/users/${username}/repos`
+      );
+      const repos = await reposResponse.json();
+
+      setUserData(user);
+      setUserRepos(repos);
+    } catch (error) {
+      console.error("Error fetching data:", error);
+    }
+  };
+
+  const handleReset = () => {
+    setUserData(null);
+    setUserRepos([]);
+  };
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      {!userData ? (
+        <Form onSubmit={handleSubmitForm} />
+      ) : (
+        <UserDetails user={userData} repos={userRepos} onReset={handleReset} />
+      )}
     </div>
   );
-}
+};
 
 export default App;
