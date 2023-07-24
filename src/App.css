@@ -1,38 +1,135 @@
-.App {
-  text-align: center;
-}
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
+/* Reset the margin and padding for the entire page */
+body {
+  margin: 0;
+  padding: 0;
+  background-color: #1a1a1a; /* Dark background color */
   min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* The container for the GitHub search app */
+.container {
+  max-width: 800px;
+  width: 90%; /* Use percentage for responsive design */
+  padding: 32px;
+  background-color: #2e2e2e; /* Dark gray background for the floating window effect */
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Box shadow for the floating effect */
+  border-radius: 16px; /* Rounded corners for the floating window */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative; /* Add position relative to contain the GitHub icon */
+}
+
+/* GitHub icon */
+.github-icon {
+  margin-bottom: 16px; /* Move the icon to the top of the container */
+  width: 80px;
+  height: 80px;
+  background-color: #fff; /* White background for the icon */
+  border-radius: 50%; /* Circular shape for the icon */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Box shadow for the icon */
+}
+
+.github-icon svg {
+  width: 60%;
+  height: 60%;
+  fill: #3b82f6; /* Blue color for the GitHub icon */
+}
+
+/* Form styles */
+.form {
+  width: 100%;
+  max-width: 400px;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
 }
 
-.App-link {
-  color: #61dafb;
+/* Form styles */
+.form {
+  width: 100%;
+  max-width: 400px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.form input {
+  width: 100%;
+  max-width: 300px;
+  padding: 12px;
+  border: none;
+  border-radius: 8px;
+  background-color: #f3f4f6; /* Light gray background for input field */
+  margin-bottom: 16px;
+  font-size: 16px;
+}
+
+.form button {
+  padding: 12px 24px;
+  border: none;
+  border-radius: 8px;
+  background-color: #3b82f6; /* Blue color for the submit button */
+  color: #fff;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.form button:hover {
+  background-color: #2563eb; /* Darker blue color on hover */
+}
+
+/* User details styles */
+.user-details {
+  margin-top: 24px;
+  text-align: center;
+}
+
+.user-details h2 {
+  font-size: 24px;
+  margin-bottom: 8px;
+}
+
+.user-details p {
+  font-size: 16px;
+  color: #6b7280;
+  margin-bottom: 16px;
+}
+
+.user-details ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.user-details li {
+  font-size: 16px;
+  color: #6b7280;
+  margin-bottom: 8px;
+}
+
+/* Reset button styles */
+.reset-btn {
+  padding: 8px 16px;
+  border: 2px solid #f3f4f6; /* Light gray border */
+  border-radius: 8px;
+  background-color: transparent;
+  color: #f3f4f6; /* Light gray color for the text */
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.reset-btn:hover {
+  background-color: #f3f4f6; /* Light gray background on hover */
+  color: #3b82f6; /* Blue color on hover */
 }
