@@ -1,25 +1,44 @@
-// src/components/UserDetails.js
 import React from "react";
 import PropTypes from "prop-types";
 
 const UserDetails = ({ user, repos, onReset }) => {
+  if (!user) {
+    return <p>User not found.</p>; // Show message when user is not found
+  }
+
   return (
     <div>
-      <img src={user.avatar_url} alt={user.name} />
-      <h2>{user.name}</h2>
-      {user.location && <p>Location: {user.location}</p>}
-      <p>Bio: {user.bio}</p>
-      <h3>Repositories:</h3>
-      <ul>
-        {repos.map((repo) => (
-          <li key={repo.id}>
-            <a href={repo.html_url} target="_blank" rel="noopener noreferrer">
-              {repo.name}
-            </a>
-          </li>
-        ))}
-      </ul>
-      <button onClick={onReset}>Reset</button>
+      <div className="user-details">
+        <img src={user.avatar_url} alt="Profile" className="avatar" />
+        <h2>{user.name}</h2>
+        <p>{user.location || "nema lokacije"}</p>
+        <p>{user.bio}</p>
+      </div>
+
+      {Array.isArray(repos) && repos.length > 0 ? (
+        <div className="repos-list">
+          <h3>Repositories:</h3>
+          <ul>
+            {repos.map((repo) => (
+              <li key={repo.id}>
+                <a
+                  href={repo.html_url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  {repo.name}
+                </a>
+              </li>
+            ))}
+          </ul>
+        </div>
+      ) : (
+        <p>Nije naslo.</p>
+      )}
+
+      <button onClick={onReset} className="reset-button">
+        natrag
+      </button>
     </div>
   );
 };

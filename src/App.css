@@ -1,48 +1,44 @@
-/* Reset the margin and padding for the entire page */
 body {
   margin: 0;
   padding: 0;
-  background-color: #1a1a1a; /* Dark background color */
+  background-color: #aebcc9;
   min-height: 100vh;
   display: flex;
   align-items: center;
   justify-content: center;
 }
 
-/* The container for the GitHub search app */
 .container {
   max-width: 800px;
-  width: 90%; /* Use percentage for responsive design */
+  width: 90%;
   padding: 32px;
-  background-color: #2e2e2e; /* Dark gray background for the floating window effect */
-  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Box shadow for the floating effect */
-  border-radius: 16px; /* Rounded corners for the floating window */
+  background-color: #8e3232;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 1.5);
+  border-radius: 16px;
   display: flex;
   flex-direction: column;
   align-items: center;
-  position: relative; /* Add position relative to contain the GitHub icon */
+  position: relative;
 }
 
-/* GitHub icon */
 .github-icon {
-  margin-bottom: 16px; /* Move the icon to the top of the container */
+  margin-bottom: 16px;
   width: 80px;
   height: 80px;
-  background-color: #fff; /* White background for the icon */
-  border-radius: 50%; /* Circular shape for the icon */
+  background-color: #fff;
+  border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Box shadow for the icon */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
 .github-icon svg {
   width: 60%;
   height: 60%;
-  fill: #3b82f6; /* Blue color for the GitHub icon */
+  fill: #3b82f6;
 }
 
-/* Form styles */
 .form {
   width: 100%;
   max-width: 400px;
@@ -52,8 +48,7 @@ body {
   justify-content: center;
 }
 
-/* Form styles */
-.form {
+form {
   width: 100%;
   max-width: 400px;
   display: flex;
@@ -62,33 +57,34 @@ body {
   justify-content: center;
 }
 
-.form input {
-  width: 100%;
+form input {
+  width: 200px;
+  height: 20px;
   max-width: 300px;
   padding: 12px;
   border: none;
   border-radius: 8px;
-  background-color: #f3f4f6; /* Light gray background for input field */
+  background-color: #f3f4f6;
   margin-bottom: 16px;
-  font-size: 16px;
+  font-size: 22px;
 }
 
-.form button {
+form button {
   padding: 12px 24px;
   border: none;
+  margin-left: 13px;
   border-radius: 8px;
-  background-color: #3b82f6; /* Blue color for the submit button */
+  background-color: #a3b4ce;
   color: #fff;
-  font-size: 16px;
+  font-size: 22px;
   cursor: pointer;
   transition: background-color 0.2s ease;
 }
 
-.form button:hover {
-  background-color: #2563eb; /* Darker blue color on hover */
+form button:hover {
+  background-color: #2563eb;
 }
 
-/* User details styles */
 .user-details {
   margin-top: 24px;
   text-align: center;
@@ -100,8 +96,8 @@ body {
 }
 
 .user-details p {
-  font-size: 16px;
-  color: #6b7280;
+  font-size: 22px;
+  color: #020814;
   margin-bottom: 16px;
 }
 
@@ -112,24 +108,60 @@ body {
 }
 
 .user-details li {
-  font-size: 16px;
-  color: #6b7280;
+  font-size: 22px;
+  color: #223355;
   margin-bottom: 8px;
 }
 
-/* Reset button styles */
 .reset-btn {
   padding: 8px 16px;
-  border: 2px solid #f3f4f6; /* Light gray border */
+  border: 2px solid #f3f4f6;
   border-radius: 8px;
   background-color: transparent;
-  color: #f3f4f6; /* Light gray color for the text */
+  color: #f3f4f6;
   font-size: 16px;
   cursor: pointer;
   transition: background-color 0.2s ease, color 0.2s ease;
 }
 
 .reset-btn:hover {
-  background-color: #f3f4f6; /* Light gray background on hover */
-  color: #3b82f6; /* Blue color on hover */
+  background-color: #f3f4f6;
+  color: #3b82f6;
+}
+.container.show-results {
+  animation: fadeInUp 0.5s forwards;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.loading-bar {
+  width: 100%;
+  height: 4px;
+  background-color: #ccc;
+  position: absolute;
+  bottom: 0;
+}
+
+.loading-progress {
+  height: 100%;
+  background-color: #3b82f6;
+  animation: loadingAnimation 2s linear infinite;
+}
+
+@keyframes loadingAnimation {
+  0% {
+    width: 0%;
+  }
+  100% {
+    width: 100%;
+  }
 }

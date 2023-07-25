@@ -19,9 +19,9 @@ const Form = ({ onSubmit }) => {
         type="text"
         value={username}
         onChange={handleChange}
-        placeholder="GitHub username"
+        placeholder="github"
       />
-      <button type="submit">Get Details</button>
+      <button type="submit">klikni</button>
     </form>
   );
 };
